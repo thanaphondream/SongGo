@@ -88,11 +88,10 @@ func (h *userHttpsHandler) Login(c *fiber.Ctx) error {
 		Name:     Name,
 		Value:    token,
 		HTTPOnly: true,
-		Secure:   false,
-		SameSite: "Lax",
+		Secure:   true,
+		SameSite: "None",
 		Path:     "/",
-
-		Expires: time.Now().Add(72 * time.Hour),
+		Expires:  time.Now().Add(72 * time.Hour),
 	})
 
 	return c.JSON(fiber.Map{
