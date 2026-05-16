@@ -20,9 +20,11 @@ func NewArtistHttps(s service.ServiceArtist) *artistHttpsHandler {
 }
 
 func (a *artistHttpsHandler) SaveArtist(c *fiber.Ctx) error {
-	Name := c.FormValue("name")
-	Bio := c.FormValue("bio")
-
+	name := c.FormValue("name")
+	bio := c.FormValue("bio")
+	if string(name) == "" || string(bio) == "" {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "image required"})
+	}
 	file, err := c.FormFile("image")
 	if err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "image required"})
