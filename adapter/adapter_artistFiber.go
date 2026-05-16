@@ -33,8 +33,8 @@ func (a *artistHttpsHandler) SaveArtist(c *fiber.Ctx) error {
 	path := "./uploads/artists/" + filenames
 
 	artists := service.Artist{
-		Name:  Name,
-		Bio:   Bio,
+		Name:  name,
+		Bio:   bio,
 		Image: "/artists/" + filenames,
 	}
 
