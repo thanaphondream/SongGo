@@ -18,12 +18,12 @@ import (
 )
 
 func main() {
-	err := godotenv.Load()
-
-	if err != nil {
-		log.Fatal("โหลด .env ไม่ได้")
-	}
+	_ = godotenv.Load()
+	
 	dsn := os.Getenv("HDAtABACE")
+	if dsn == "" {
+		log.Fatal("HDAtABACE not found")
+	}
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect to database: " + err.Error())
