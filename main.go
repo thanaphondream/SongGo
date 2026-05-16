@@ -34,7 +34,7 @@ func main() {
 	}
 	app := fiber.New()
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "http://localhost:4200",
+		AllowOrigins:     "https://a94c-2001-fb1-11c-6262-cdcc-2765-48ab-2fce.ngrok-free.app",
 		AllowCredentials: true,
 		AllowHeaders:     "Origin, Content-Type, Accept",
 		AllowMethods:     "GET,POST,PUT,DELETE,OPTIONS",
