@@ -36,7 +36,7 @@ func main() {
 	app.Use(cors.New(cors.Config{
 		AllowOrigins:     "https://483b-2001-fb1-11c-6262-a9a4-d284-9f41-915d.ngrok-free.app",
 		AllowCredentials: true,
-		AllowHeaders:     "Origin, Content-Type, Accept",
+		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
 		AllowMethods:     "GET,POST,PUT,DELETE,OPTIONS",
 	}))
 	//User
